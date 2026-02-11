@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablón Personalizable</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Mi Tablón</h1>
+        
+        <div class="controls-container">
+            <!-- Entrada de texto -->
+            <input type="text" id="note-input" placeholder="Escribe tu idea aquí..." autocomplete="off">
+            
+            <!-- Selector de Color -->
+            <select id="color-select">
+                <option value="1">Amarillo</option>
+                <option value="2">Cian</option>
+                <option value="3">Rosa</option>
+                <option value="4">Lila</option>
+            </select>
+
+            <!-- Selector de Forma -->
+            <select id="shape-select">
+                <option value="square">Cuadrado</option>
+                <option value="wide">Rectangular</option>
+                <option value="circle">Circulo</option>
+                <option value="star">Estrella</option>
+            </select>
+
+            <!-- Botón -->
+            <button id="add-btn">Crear Nota</button>
+        </div>
+    </div>
+
+    <div id="board">
+        <!-- Las notas aparecen aquí -->
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

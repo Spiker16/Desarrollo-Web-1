@@ -1,0 +1,192 @@
+/* Configuración base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
+    background-image: radial-gradient(#444 15%, transparent 16%);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 800px;
+}
+
+.header h1 {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 3.5rem;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Contenedor de controles (Input + Selects + Botón) */
+.controls-container {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-wrap: wrap; /* Para que se adapte en móviles */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de los Inputs y Selects */
+input, select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    min-width: 200px;
+}
+
+select {
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+button#add-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+button#add-btn:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+}
+
+/* Área del Tablero */
+#board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Alineación superior para notas de dif. alturas */
+    gap: 30px;
+    width: 95%;
+    max-width: 1400px;
+    padding-bottom: 50px;
+}
+
+/* NOTA ADHESIVA BASE */
+.sticky-note {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffeb3b;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* FORMAS DE LAS NOTAS */
+.shape-square {
+    width: 240px;
+    height: 240px;
+}
+
+.shape-wide {
+    width: 320px;
+    height: 180px;
+}
+
+.shape-tall {
+    width: 180px;
+    height: 300px;
+}
+
+.shape-circle {
+    border-radius: 50%
+}
+
+.shape-star {
+    width: 280px;  /* <--- Aquí está */
+    height: 280px; /* <--- Aquí está */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+.sticky-note:hover {
+    transform: scale(1.05) !important;
+    z-index: 100;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
+}
+
+.note-content {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.6rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    line-height: 1.2;
+    word-break: break-word;
+    margin-top: 10px;
+    color: #222;
+}
+.note-content::-webkit-scrollbar { width: 0; }
+
+.note-date {
+    font-size: 0.75rem;
+    color: rgba(0,0,0,0.5);
+    text-align: right;
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+.delete-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.sticky-note:hover .delete-btn { opacity: 1; }
+.delete-btn:hover { background: #d32f2f; transform: scale(1.1); }
+
+@keyframes popIn {
+    from { transform: scale(0) rotate(0deg); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Colores */
+.color-1 { background-color: #ffeb3b; transform: rotate(-2deg); }
+.color-2 { background-color: #a7ffeb; transform: rotate(1deg); }
+.color-3 { background-color: #ffcdd2; transform: rotate(-1deg); }
+.color-4 { background-color: #e1bee7; transform: rotate(2deg); }
